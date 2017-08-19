@@ -9,6 +9,6 @@ ${rsync_cmd} ${CHECKOUT_DIR}/home ${BUILD_DIR}/pub
 
 
 mkdir -p ${BUILD_DIR}/scripts
-${rsync_cmd} ${SCRIPTS_DIR}/. ${BUILD_DIR}/scripts
+${rsync_cmd} ${SCRIPT_DIR}/. ${BUILD_DIR}/scripts
 
 rm -rf ${BUILD_DIR}/home
