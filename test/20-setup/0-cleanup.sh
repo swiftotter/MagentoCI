@@ -4,4 +4,4 @@
 
 rm -rf ${MAGENTO}"/var/cache"
 rm -rf ${OUTPUT_DIR}
-rm "${LOCAL_XML}"
+rm "${LOCAL_CONFIG}"

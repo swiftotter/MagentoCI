@@ -5,18 +5,17 @@
 BASE=${PWD%/}
 
 export BASE=${BASE}
-export MAGENTO="${BASE}/build/public/"
-export VENDOR="${BASE}/build/vendor"
+export BUILD="${BASE}/build"
+export VENDOR="${BUILD}/vendor"
 export OUTPUT_DIR="${BASE}/output"
 export SCRIPT_DIR="${BASE}/scripts"
 export TEST_SCRIPT_DIR="${BASE}/scripts/test/"
-export LOCAL_XML="${BASE}/build/public/app/etc/local.xml"
-export PHPUNIT_CONFIG_FILE="${BASE}/build/phpunit.xml"
-export PHPUNIT_DIR="${BASE}/build/vendor/phpunit/phpunit"
+export PHPUNIT_CONFIG_FILE="${BUILD}/phpunit.xml"
+export PHPUNIT_DIR="${BASE}/vendor/phpunit/phpunit"
 export PHPUNIT_BIN="${PHPUNIT_DIR}/phpunit"
 export DOMAIN=$(curl -s http://169.254.169.254/latest/meta-data/public-hostname)
 export HOST="http://${DOMAIN}/"
-export URL="${HOST}${PATH}/public/"
+
 
 mkdir -p ${OUTPUT_DIR}
 
