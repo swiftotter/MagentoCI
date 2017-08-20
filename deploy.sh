@@ -94,6 +94,10 @@ if [ -z ${USE_SUDO+x} ]; then
     USE_SUDO=0
 fi
 
+if [ -z ${MAGENTO_VERSION+x} ]; then
+    MAGENTO_VERSION="2.2"
+fi
+
 export DEBUG=${DEBUG}
 export BUILD=${BUILD}
 export ENVIRONMENT=${ENVIRONMENT}

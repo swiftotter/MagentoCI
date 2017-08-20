@@ -49,11 +49,11 @@ esac
 shift
 done
 
-if [ -z ${MAGENTO_VERSION} ]; then
+if [ -z ${MAGENTO_VERSION+x} ]; then
     MAGENTO_VERSION="2.2"
 fi
 
-if [ -z ${THEME} ]; then
+if [ -z ${THEME+x} ]; then
     THEME="flow"
 fi
 
