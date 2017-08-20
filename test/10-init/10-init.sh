@@ -16,6 +16,11 @@ export PHPUNIT_BIN="${PHPUNIT_DIR}/phpunit"
 export DOMAIN=$(curl -s http://169.254.169.254/latest/meta-data/public-hostname)
 export HOST="http://${DOMAIN}/"
 
+if [[ ! -f ${BUILD}/phpunit.xml ]]; then
+    logvalue "No phpunit.xml found. Cancelling."
+    exit 125
+fi
+
 
 mkdir -p ${OUTPUT_DIR}
 
