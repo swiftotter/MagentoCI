@@ -13,6 +13,7 @@ where:
     -p|--filePath Path (REQUIRED)
     -d|--debug Debug mode
     -t|--tablePrefix Table prefix
+    -m|--magentoVersion Version of Magento deployed
 
 To run this script, you must be in the folder that contains the deploy destination (current), the permanent assets folder (link) and the releases (releases) folder. These folders will be attempted to be created if they do not exist."
 
@@ -27,6 +28,10 @@ key="$1"
 case $key in 
     -i|--buildID)
     BUILD_ID=$2
+    shift
+    ;;
+    -i|--magentoVersion)
+    MAGENTO_VERSION=$2
     shift
     ;;
     -c|--cryptKey)
@@ -102,6 +107,7 @@ export S3_BUCKET=${S3_BUCKET}
 export DB_FILE=${DB_FILE}
 export TABLE_PREFIX=${TABLE_PREFIX}
 export ENVIRONMENT=${ENVIRONMENT}
+export MAGENTO_VERSION=${MAGENTO_VERSION}
 
 printf "Debug Mode: ${DEBUG}\n"
 

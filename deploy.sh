@@ -27,6 +27,10 @@ case $key in
     BUILD=$2
     shift
     ;;
+    -m|--magentoVersion)
+    MAGENTO_VERSION=$2
+    shift
+    ;;    
     -i|--buildID)
     BUILD_ID=$2
     shift
@@ -97,6 +101,7 @@ export BUILD_ID=${BUILD_ID}
 export USER=${USER}
 export GROUP=${GROUP}
 export DEPLOY_USER=${DEPLOY_USER}
+export MAGENTO_VERSION=${MAGENTO_VERSION}
 
 printf "Debug Mode: ${DEBUG}"
 
