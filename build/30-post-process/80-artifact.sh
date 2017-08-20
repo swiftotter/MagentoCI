@@ -8,7 +8,7 @@
 #    exit 20
 #fi
 
-if [ ${TESTMODE} == 0 ] || [ -z ${TESTMODE+x} ]; then
+if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
     (cd "${BUILD_DIR}" && tar --gzip --create --file "${BASE}/build.tar.gz" .)
 fi
 
