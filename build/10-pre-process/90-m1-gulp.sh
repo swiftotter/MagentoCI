@@ -11,7 +11,7 @@ if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
             npm install &&
 
             printf "Gulping the files" &&
-            npm run gulp prod &&
+            npm run gulp prod
         )
     fi
     
