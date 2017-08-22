@@ -33,9 +33,9 @@ fi
 
 
 ## Adding the home folder overrides
-if [[ -d "${HOME_DIR}" ]]; then
-    echo "${rsync_cmd} ${HOME_DIR}/. ${BUILD_DIR}/public/\n"
-    ${rsync_cmd} ${HOME_DIR}/. ${BUILD_DIR}/public/
+if [[ -d "${CHECKOUT_DIR}/home" ]]; then
+    echo "${rsync_cmd} ${CHECKOUT_DIR}/home/. ${BUILD_DIR}/public/\n"
+    ${rsync_cmd} ${CHECKOUT_DIR}/home/. ${BUILD_DIR}/public/
 fi
 
 
