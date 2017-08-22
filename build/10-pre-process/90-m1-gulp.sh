@@ -17,7 +17,7 @@ if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
     
     if [[ -f "${CHECKOUT_DIR}/customizations/package.json" ]]; then
         (
-            cd ${CHECKOUT_DIR}/customization &&
+            cd ${CHECKOUT_DIR}/customizations &&
             printf "Installing NPM modules (inside of customizations folder)" &&
             npm install &&
 
