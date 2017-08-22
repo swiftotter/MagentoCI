@@ -4,7 +4,7 @@
 
 if [ -d "${RELEASE_DIR}/vendor/n98/magerun" ]; then
     echo "Refreshing caches with n98 mage run"
-    MAGERUN_CMD="${PHP} ${RELEASE_DIR}/vendor/n98/magerun/bin/n98-magerun"
+    MAGERUN_CMD="${PHP} ${RELEASE_DIR}/vendor/n98/magerun/bin/n98-magerun --root-dir=${RELEASE_DIR}/public/"
 
     ${MAGERUN_CMD} cache:disable
     ${MAGERUN_CMD} cache:enable
