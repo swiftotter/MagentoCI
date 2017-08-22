@@ -4,18 +4,25 @@
 
 if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
     if [[ -f "${CHECKOUT_DIR}/package.json" ]]; then
-        printf "Installing NPM modules"
-        npm install
+        (
+            cd ${CHECKOUT_DIR} &&
+        
+            printf "Installing NPM modules" &&
+            npm install &&
 
-        printf "Gulping the files"
-        npm run gulp prod
+            printf "Gulping the files" &&
+            npm run gulp prod &&
+        )
     fi
     
     if [[ -f "${CHECKOUT_DIR}/customizations/package.json" ]]; then
-        printf "Installing NPM modules (inside of customizations folder)"
-        npm install
+        (
+            cd ${CHECKOUT_DIR}/customizations/package.json &&
+            printf "Installing NPM modules (inside of customizations folder)" &&
+            npm install &&
 
-        printf "Gulping the files"
-        npm run gulp prod
+            printf "Gulping the files" &&
+            npm run gulp prod
+        )
     fi
 fi
