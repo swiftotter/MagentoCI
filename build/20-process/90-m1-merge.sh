@@ -19,6 +19,7 @@ if [[ -d "${CHECKOUT_DIR}/extensions" ]]; then
     ${rsync_cmd} --exclude='*modman*' ${CHECKOUT_DIR}/extensions/. ${BUILD_DIR}/public/
 fi
 
+
 echo "${rsync_cmd} ${SCRIPT_DIR}/. ${BUILD_DIR}/scripts/"
 
 ## Bringing in the deploy scripts
@@ -30,11 +31,13 @@ if [[ -d "${CONFIG_DIR}" ]]; then
     ${rsync_cmd} ${CONFIG_DIR} ${BUILD_DIR}/
 fi
 
+
 ## Adding the home folder overrides
 if [[ -d "${HOME_DIR}" ]]; then
     echo "${rsync_cmd} ${HOME_DIR}/. ${BUILD_DIR}/public/\n"
     ${rsync_cmd} ${HOME_DIR}/. ${BUILD_DIR}/public/
 fi
+
 
 ## Copying "public" composer files (those that go in the public/ folder)
 if [[ -d "${CHECKOUT_DIR}/core" ]]; then
@@ -42,10 +45,12 @@ if [[ -d "${CHECKOUT_DIR}/core" ]]; then
     ${rsync_cmd} ${CHECKOUT_DIR}/core/. ${BUILD_DIR}/public/
 fi
 
+
 ## Copying "private" composer files (those that stay in vendor/)
 if [[ -f "${CHECKOUT_DIR}/phpunit.xml" ]]; then
     ${rsync_cmd} ${CHECKOUT_DIR}/phpunit.* ${BUILD_DIR}
 fi
+
 
 ## Copying "private" composer files (those that stay in vendor/)
 if [[ -f "${CHECKOUT_DIR}/composer.json" ]]; then
@@ -55,7 +60,7 @@ fi
 
 
 ## Copying "private" composer files (those that stay in vendor/)
-if [[ -f "${CHECKOUT_DIR}/vendor" ]]; then
+if [[ -d "${CHECKOUT_DIR}/vendor" ]]; then
     echo "${rsync_cmd} ${CHECKOUT_DIR}/vendor/. ${BUILD_DIR}/vendor\n"
     ${rsync_cmd} ${CHECKOUT_DIR}/vendor/. ${BUILD_DIR}/vendor
 fi
