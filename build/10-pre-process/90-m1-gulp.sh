@@ -3,7 +3,7 @@
 ### 90-gulp.sh: this file runs gulp commands on the build folder
 
 if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
-    if [[ -f "${BASE}/package.json" ]]; then
+    if [[ -f "${CHECKOUT_DIR}/package.json" ]]; then
         printf "Installing NPM modules"
         npm install
 
@@ -11,7 +11,7 @@ if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
         npm run gulp prod
     fi
     
-    if [[ -f "${BASE}/customizations/package.json" ]]; then
+    if [[ -f "${CHECKOUT_DIR}/customizations/package.json" ]]; then
         printf "Installing NPM modules (inside of customizations folder)"
         npm install
 
