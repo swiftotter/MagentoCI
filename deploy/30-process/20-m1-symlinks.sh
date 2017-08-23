@@ -17,6 +17,8 @@ ln -sf ${LINK_DIR}/var ${RELEASE_DIR}/public
 [[ -f "${LINK_DIR}/driver-connections.yaml" ]] && ln -sf "${LINK_DIR}/driver-connections.yaml" ${RELEASE_DIR}/config.d/connections.yaml
 [[ -d "${LINK_DIR}/blog" ]] && ln -sf ${LINK_DIR}/blog ${RELEASE_DIR}/public/blog
 [[ -d "${LINK_DIR}/sitemap" ]] && ln -sf ${LINK_DIR}/sitemap ${RELEASE_DIR}/public/sitemap
+[[ -d "${LINK_DIR}/menu" ]] && ln -sf ${LINK_DIR}/menu ${RELEASE_DIR}/public/menu
+
 
 ## LINK ALL ROBOTS.TXT FILES:
 for file in `find ${LINK_DIR} -maxdepth 1 -type f -name "robots*" | xargs -I {} basename {}`
