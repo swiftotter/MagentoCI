@@ -39,10 +39,10 @@ if [[ -d "${CHECKOUT_DIR}/home" ]]; then
 fi
 
 
-## Copying "public" composer files (those that go in the public/ folder)
-if [[ -d "${CHECKOUT_DIR}/core" ]]; then
-    echo "${rsync_cmd} ${CHECKOUT_DIR}/core/. ${BUILD_DIR}/public/\n"
-    ${rsync_cmd} ${CHECKOUT_DIR}/core/. ${BUILD_DIR}/public/
+## Copying code folder
+if [[ -d "${CHECKOUT_DIR}/code" ]]; then
+    echo "${rsync_cmd} ${CHECKOUT_DIR}/code/. ${BUILD_DIR}/public/\n"
+    ${rsync_cmd} ${CHECKOUT_DIR}/code/. ${BUILD_DIR}/public/
 fi
 
 
