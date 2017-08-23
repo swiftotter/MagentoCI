@@ -65,6 +65,12 @@ if [[ -d "${CHECKOUT_DIR}/vendor" ]]; then
     ${rsync_cmd} ${CHECKOUT_DIR}/vendor/. ${BUILD_DIR}/vendor
 fi
 
+## Copying files in docs folder (contains composer files).
+if [[ -d "${CHECKOUT_DIR}/docs" ]]; then
+    echo "${rsync_cmd} ${CHECKOUT_DIR}/docs/. ${BUILD_DIR}/docs\n"
+    ${rsync_cmd} ${CHECKOUT_DIR}/docs/. ${BUILD_DIR}/docs
+fi
+
 
 ## Merging the code folders (customizations is after so it can override files from /extensions)
 if [[ -d "${CHECKOUT_DIR}/customizations" ]]; then
