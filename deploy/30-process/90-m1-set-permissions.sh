@@ -44,7 +44,7 @@ else
     #fi
     find ${RELEASE_DIR}/. -type f -exec chmod 600 {} \;
     find ${RELEASE_DIR}/. -type d -exec chmod 700 {} \;
-    chmod 700 ${RELEASE_DIR}/
+    chmod 770 ${RELEASE_DIR}/
     find ${RELEASE_DIR}/public/var/ -type f -exec chmod 600 {} \;
     find ${RELEASE_DIR}/public/var/ -type d -exec chmod 700 {} \;
     find ${RELEASE_DIR}/public/media/wysiwyg -type d -exec chmod 755 {} \;
