@@ -67,8 +67,8 @@ fi
 
 ## Copying files in docs folder (contains composer files).
 if [[ -d "${CHECKOUT_DIR}/docs" ]]; then
-    echo "${rsync_cmd} ${CHECKOUT_DIR}/docs/. ${BUILD_DIR}/docs\n"
-    ${rsync_cmd} ${CHECKOUT_DIR}/docs/. ${BUILD_DIR}/docs
+    echo "${rsync_cmd} ${CHECKOUT_DIR}/docs/. ${BUILD_DIR}/public/\n"
+    ${rsync_cmd} ${CHECKOUT_DIR}/docs/. ${BUILD_DIR}/public/
 fi
 
 
