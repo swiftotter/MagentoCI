@@ -42,13 +42,13 @@ else
     #if [ ! -z "${USER}" ] && [ ! -z "${GROUP}" ]; then
         #chown -R "${USER}:${GROUP}" ${RELEASE_DIR}
     #fi
-    find ${RELEASE_DIR}/. -type f -exec chmod 600 {} \;
-    find ${RELEASE_DIR}/. -type d -exec chmod 700 {} \;
+    find ${RELEASE_DIR}/. -type f -exec chmod 660 {} \;
+    find ${RELEASE_DIR}/. -type d -exec chmod 770 {} \;
     chmod 770 ${RELEASE_DIR}/
-    find ${RELEASE_DIR}/public/var/ -type f -exec chmod 600 {} \;
-    find ${RELEASE_DIR}/public/var/ -type d -exec chmod 700 {} \;
+    find ${RELEASE_DIR}/public/var/ -type f -exec chmod 660 {} \;
+    find ${RELEASE_DIR}/public/var/ -type d -exec chmod 770 {} \;
     find ${RELEASE_DIR}/public/media/wysiwyg -type d -exec chmod 755 {} \;
-    chmod 700 ${RELEASE_DIR}/public/includes
-    chmod 600 ${RELEASE_DIR}/public/includes/config.php
-    chmod 500 ${RELEASE_DIR}/deploy
+    chmod 770 ${RELEASE_DIR}/public/includes
+    chmod 660 ${RELEASE_DIR}/public/includes/config.php
+    chmod 550 ${RELEASE_DIR}/deploy
 fi
