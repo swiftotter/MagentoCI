@@ -10,10 +10,14 @@ fi
 
 DB_STATUS=$( { mage setup:db:status; } 2>&1 )
 
+logvalue $DB_STATUS
+
 if [[ $DB_STATUS = *"All modules are up to date."* ]]; then
-    RUN_DB_UPGRADE=1
-else
+    logvalue "No DB upgrade needed."
     RUN_DB_UPGRADE=0
+else
+    logvalue "DB upgraded in process."
+    RUN_DB_UPGRADE=1
 fi
 
 export RUN_DB_UPGRADE=$RUN_DB_UPGRADE
