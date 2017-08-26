@@ -11,7 +11,7 @@ fi
 if [[ $RUN_DB_UPGRADE = 1 ]]; then
     logvalue "DISABLING maintenance mode."
 
-    (cd ${OUTPUT_DIR}
-         && $PHP bin/magento maintenance:disable
+    (cd ${OUTPUT_DIR} \
+         && $PHP bin/magento maintenance:disable \
     )
 fi
