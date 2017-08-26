@@ -8,7 +8,7 @@ if [ -z ${OUTPUT_DIR+x} ]; then
     exit
 fi
 
-DB_STATUS=$( { mage setup:db:status; } 2>&1 )
+DB_STATUS=$( { $PHP bin/magento setup:db:status; } 2>&1 )
 
 logvalue $DB_STATUS
 
@@ -16,7 +16,7 @@ if [[ $DB_STATUS = *"All modules are up to date."* ]]; then
     logvalue "No DB upgrade needed."
     RUN_DB_UPGRADE=0
 else
-    logvalue "DB upgraded in process."
+    logvalue "DB upgrade in process."
     RUN_DB_UPGRADE=1
 fi
 
@@ -27,8 +27,8 @@ if [[ $RUN_DB_UPGRADE = 1 ]]; then
 
     (cd ${OUTPUT_DIR} \
          && $PHP bin/magento maintenance:enable \
-         && $PHP bin/magento setup:db-schema:upgrade --keep-generated \
-         && $PHP bin/magento setup:db-data:upgrade --keep-generated \
+         && $PHP bin/magento setup:db-schema:upgrade \
+         && $PHP bin/magento setup:db-data:upgrade \
     )
 fi
 
