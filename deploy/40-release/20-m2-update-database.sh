@@ -24,8 +24,9 @@ export RUN_DB_UPGRADE=$RUN_DB_UPGRADE
 
 if [[ $RUN_DB_UPGRADE = 1 ]]; then
     logvalue "Maintenance mode and updating database."
+    logvalue "Entering cd ${RELEASE_DIR}"
 
-    (cd ${OUTPUT_DIR} \
+    (cd ${RELEASE_DIR} \
          && $PHP bin/magento maintenance:enable \
          && $PHP bin/magento setup:db-schema:upgrade \
          && $PHP bin/magento setup:db-data:upgrade \
