@@ -21,10 +21,10 @@ export RUN_DB_UPGRADE=$RUN_DB_UPGRADE
 if [[ $RUN_DB_UPGRADE = 1 ]]; then
     logvalue "Maintenance mode and updating database."
 
-    (cd ${OUTPUT_DIR}
-         && $PHP bin/magento maintenance:enable
-         && $PHP bin/magento setup:db-schema:upgrade --keep-generated
-         && $PHP bin/magento setup:db-data:upgrade --keep-generated
+    (cd ${OUTPUT_DIR} \
+         && $PHP bin/magento maintenance:enable \
+         && $PHP bin/magento setup:db-schema:upgrade --keep-generated \
+         && $PHP bin/magento setup:db-data:upgrade --keep-generated \
     )
 fi
 
