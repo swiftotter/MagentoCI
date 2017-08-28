@@ -18,6 +18,6 @@ for FILE in ${RELEASE_PARENT_DIR}/*-*
 do
     if [[ ${FILE} != *"-${BUILD}"* ]] && [[ ${FILE} != *"-${PREVIOUS}"* ]]; then
         printf "DELETING ${FILE}\n"
-        sudo rm -rf ${FILE}
+        rm -rf ${FILE}
     fi
 done
