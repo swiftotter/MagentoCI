@@ -6,9 +6,9 @@ if [ ! -z "$THEME" -a "$THEME" != " " ]; then
 
     (cd "${BUILD_DIR}/vendor/snowdog/frontools/"  \
         && npm install \
-        && gulp inheritance --prod --theme flow --gulpfile gulpfile.js \
-        && gulp babel --prod --theme flow --gulpfile gulpfile.js \
-        && gulp styles --prod --disableMaps --theme flow --gulpfile gulpfile.js \
+        && gulp inheritance --prod --theme ${THEME} --gulpfile gulpfile.js \
+        && gulp babel --prod --theme ${THEME} --gulpfile gulpfile.js \
+        && gulp styles --prod --disableMaps --theme ${THEME} --gulpfile gulpfile.js \
     )
 
 fi
