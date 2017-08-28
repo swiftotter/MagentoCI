@@ -8,9 +8,9 @@ if [ -z ${OUTPUT_DIR+x} ]; then
     exit
 fi
 
-DB_STATUS=$( { $PHP bin/magento setup:db:status; } 2>&1 )
+DB_STATUS=$( { cd ${RELEASE_DIR} && $PHP bin/magento setup:db:status; } 2>&1 )
 
-logvalue $DB_STATUS
+logvalue "DB Status: ${DB_STATUS}"
 
 if [[ $DB_STATUS = *"All modules are up to date."* ]]; then
     logvalue "No DB upgrade needed."
@@ -33,4 +33,4 @@ if [[ $RUN_DB_UPGRADE = 1 ]]; then
     )
 fi
 
-(cd ${OUTPUT_DIR} && $PHP bin/magento cache:flush)
+(cd ${RELEASE_DIR} && $PHP bin/magento cache:flush)
