@@ -12,7 +12,7 @@ DB_STATUS=$( { cd ${RELEASE_DIR} && $PHP bin/magento setup:db:status; } 2>&1 )
 
 logvalue "DB Status: ${DB_STATUS}"
 
-if [[ $DB_STATUS = *"All modules are up to date."* ]]; then
+if [[ $DB_STATUS = *"All modules are up to date."* ]] || [[ $MAGENTO_MISSING = 1 ]]; then
     logvalue "No DB upgrade needed."
     RUN_DB_UPGRADE=0
 else
@@ -33,4 +33,6 @@ if [[ $RUN_DB_UPGRADE = 1 ]]; then
     )
 fi
 
-(cd ${RELEASE_DIR} && $PHP bin/magento cache:flush)
+if [[ $MAGENTO_MISSING = 0 ]]; then
+    (cd ${RELEASE_DIR} && $PHP bin/magento cache:flush)
+fi
