@@ -7,9 +7,19 @@ if [ -z ${LINK_DIR+x} ]; then
     exit
 fi
 
+export MAGENTO_MISSING=0;
+
 if [ ! -f "${LINK_DIR}/env.php" ]; then
-    printf "Magento's env.php is not found in ${LINK_DIR}. Please create it."
-    exit 1
+    echo "Magento's env.php is not found in ${LINK_DIR}. Please install Magento.\n"
+    echo "cd ${OUTPUT_DIR} && php bin/magento setup:install --db-host=localhost --db-name=SPECIFY_DB_NAME \ \n"
+    echo "                    --db-user=SPECIFY_DB_USER --db-password=SPECIFY_DB_PASSWORD \ \n"
+    echo "                    --admin-firstname=Magento --admin-lastname=User --admin-email=YOUR_EMAIL@YOU.com \ \n"
+    echo "                    --admin-user=site-admin --admin-password=PASSWORD321 --language=en_US \ \n"
+    echo "                    --currency=USD --use-rewrites=1"
+    
+    touch "${LINK_DIR}/env.php"
+    
+    export MAGENTO_MISSING=1;
 fi
 
 if [ ! -d "${LINK_DIR}/media" ]; then
