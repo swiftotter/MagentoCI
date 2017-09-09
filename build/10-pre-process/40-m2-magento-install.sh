@@ -7,6 +7,8 @@ logvalue "Installing Magento"
 
 cd ${BUILD_DIR}
 
+
+
 sudo chmod 777 .
 sudo chmod +x bin/magento
 ${MAGENTO_CMD} setup:install \
@@ -16,5 +18,5 @@ ${MAGENTO_CMD} setup:install \
     --admin-user="${MAGE_ADMIN_USER}" \
     --admin-password="${MAGE_ADMIN_PASSWORD}" \
     --db-name="${DB_NAME}" \
-    --db-user="${MYSQL_USER}" \
-    --db-password="${MYSQL_PASSWORD}"
+    --db-user="${MYSQL_USER}" #\
+#    --db-password="${MYSQL_PASSWORD}"
