@@ -19,7 +19,7 @@ To run this script, you must be in the folder that contains the deploy destinati
 
 DEBUG=0
 
-
+currentDirectory=$(pwd)
 
 while [[ $# -gt 1 ]]
 do
@@ -131,6 +131,8 @@ export TESTMODE=1
 chmod -R 777 build/pub/media/
 
 source scripts/build.sh --magentoVersion ${MAGENTO_VERSION} --theme ${THEME} --buildID ${BUILD_ID}
+
+cd $currentDirectory
 
 source "scripts/utilities/include.sh"
 source "scripts/utilities/php.sh"
