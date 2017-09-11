@@ -14,5 +14,10 @@ fi
 
 if [ -f "${BUILD_DIR}/composer.json" ]; then
     logvalue "Executing composer install"
-    (cd ${BUILD_DIR} && composer install --ignore-platform-reqs --no-interaction --no-plugins --no-dev  --no-progress --no-suggest --prefer-dist) #--optimize-autoloader
+    ADDITIONS=""
+    if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
+        ADDITIONS="--no-dev"
+    fi
+    
+    (cd ${BUILD_DIR} && composer install $ADDITIONS --ignore-platform-reqs --no-interaction --no-plugins --no-progress --no-suggest --prefer-dist --optimize-autoloader)
 fi
