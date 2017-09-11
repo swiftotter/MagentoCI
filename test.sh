@@ -13,7 +13,7 @@ where:
     -p|--filePath Path (REQUIRED)
     -d|--debug Debug mode
     -t|--tablePrefix Table prefix
-    -m|--magentoVersion Version of Magento deployed
+    -o|--magentoVersion Version of Magento deployed
 
 To run this script, you must be in the folder that contains the deploy destination (current), the permanent assets folder (link) and the releases (releases) folder. These folders will be attempted to be created if they do not exist."
 
@@ -30,7 +30,7 @@ case $key in
     BUILD_ID=$2
     shift
     ;;
-    -i|--magentoVersion)
+    -o|--magentoVersion)
     MAGENTO_VERSION=$2
     shift
     ;;
