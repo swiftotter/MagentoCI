@@ -131,9 +131,9 @@ export TESTMODE=1
 chmod -R 777 build/pub/media/
 
 source scripts/build.sh --magentoVersion ${MAGENTO_VERSION} --theme ${THEME} --buildID ${BUILD_ID}
-
+pwd
 cd $currentDirectory
-
+pwd
 source "scripts/utilities/include.sh"
 source "scripts/utilities/php.sh"
 
