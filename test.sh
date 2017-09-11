@@ -34,6 +34,10 @@ case $key in
     MAGENTO_VERSION=$2
     shift
     ;;
+    -n|--theme)
+    THEME=$2
+    shift
+    ;;
     -c|--cryptKey)
     CRYPT_KEY=$2
     shift
@@ -74,6 +78,16 @@ if [ -z ${BUILD_ID+x} ]; then
     exit 125
 fi
 
+if [ -z ${MAGENTO_VERSION+x} ]; then
+    echo "You must specify the build id (-i|--magentoVersion)."
+    exit 125
+fi
+
+if [ -z ${THEME+x} ]; then
+    echo "You must specify the theme name (-n|--theme)."
+    exit 125
+fi
+
 if [ -z ${CRYPT_KEY+x} ]; then
     echo "You must specify the crypt key (-c)."
     exit 125
@@ -101,6 +115,7 @@ else
 fi
 
 export DEBUG=${DEBUG}
+export BUILD_ID=${BUILD_ID}
 export FILE_PATH=${FILE_PATH}
 export CRYPT_KEY=${CRYPT_KEY}
 export S3_BUCKET=${S3_BUCKET}
@@ -108,11 +123,11 @@ export DB_FILE=${DB_FILE}
 export TABLE_PREFIX=${TABLE_PREFIX}
 export ENVIRONMENT=${ENVIRONMENT}
 export MAGENTO_VERSION=${MAGENTO_VERSION}
-
+export THEME=${THEME}
 printf "Debug Mode: ${DEBUG}\n"
 
 export TESTMODE=1
-source scripts/build.sh -n
+source scripts/build.sh --magentoVersion ${MAGENTO_VERSION} --theme ${THEME} --buildID ${BUILD_ID}
 
 source "scripts/utilities/include.sh"
 source "scripts/utilities/php.sh"
