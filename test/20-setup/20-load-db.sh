@@ -10,7 +10,7 @@ gunzip --force ${MYSQL_DB_NAME}.gz
 
 echo "Importing into MySQL...\n"
 mysql -u ${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute="CREATE DATABASE ${MYSQL_DB_NAME}"
-mysql -u ${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DB_NAME} < ${MYSQL_DB_NAME}
+#mysql -u ${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DB_NAME} < ${MYSQL_DB_NAME}
 
 echo "Removing dump\n"
 rm ${MYSQL_DB_NAME}
