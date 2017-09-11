@@ -127,6 +127,9 @@ export THEME=${THEME}
 printf "Debug Mode: ${DEBUG}\n"
 
 export TESTMODE=1
+
+chmod -R 777 build/pub/media/
+
 source scripts/build.sh --magentoVersion ${MAGENTO_VERSION} --theme ${THEME} --buildID ${BUILD_ID}
 
 source "scripts/utilities/include.sh"
