@@ -10,6 +10,7 @@ cd ${BUILD_DIR}
 
 
 sudo chmod 777 .
+sudo chmod -R 777 ${BUILD_DIR}/pub/media
 sudo chmod +x bin/magento
 ${MAGENTO_CMD} setup:install \
     --admin-firstname="Magento" \
