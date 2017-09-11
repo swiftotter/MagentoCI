@@ -8,13 +8,17 @@
 #    exit 20
 #fi
 
+logvalue "Running artifact builder."
+
 if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
     (cd "${BUILD_DIR}" && tar --gzip --create --file "${BASE}/build.tar.gz" .)
-fi
-
-if [[ -f "${BUILD_FILE}" ]]; then
-    printf "BUILD SUCCESS"
-else
-    printf "BUILD FAILED. NO ${BUILD_FILE} FOUND." 1>&2
-    exit 125
+    
+    if [[ -f "${BUILD_FILE}" ]]; then
+        printf "BUILD SUCCESS"
+    else
+        printf "BUILD FAILED. NO ${BUILD_FILE} FOUND." 1>&2
+        exit 125
+    fi
+else 
+    logvalue "Test mode active. No artifact generated."
 fi
