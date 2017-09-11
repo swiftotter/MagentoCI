@@ -10,6 +10,7 @@ cd ${BUILD_DIR}
 
 
 sudo chmod 777 .
+sudo mkdir -p ${BUILD_DIR}/pub/media
 sudo chmod -R 777 ${BUILD_DIR}/pub/media
 sudo rm ${BUILD_DIR}/app/etc/env.php
 sudo chmod +x bin/magento
