@@ -4,4 +4,7 @@
 
 logvalue "Setting up Magento 2 Composer Credentials"
 
-composer config -a -g http-basic.repo.magento.com ${MAGENTO_USERNAME} ${MAGENTO_PASSWORD}
+if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
+else
+  composer config -a -g http-basic.repo.magento.com ${MAGENTO_USERNAME} ${MAGENTO_PASSWORD}
+fi
