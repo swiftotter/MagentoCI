@@ -26,6 +26,4 @@ if [[ $MAGENTO_VERSION == "2."* ]]; then
     fi
 
     logvalue "DB Name: ${DB_NAME}"
-    logvalue "Magento Admin User: ${MAGE_ADMIN_USER}"
-    logvalue "Magento Admin Password: ${MAGE_ADMIN_PASSWORD}"
 fi
