@@ -13,7 +13,7 @@ ln -snf ${RELEASE_DIR} ${OUTPUT_DIR}
 
 
 ## Cleaning PHP7 opcaches
-echo ${RELEASE_DIR}/vendor/bin/cachetool
 if [[ -d "${RELEASE_DIR}/vendor/bin/cachetool" ]]; then
+    logvalue "Clearing caches..."
     (cd ${RELEASE_DIR} && ${PHP} vendor/gordalina/cachetool/bin/cachetool opcache:reset)
 fi
