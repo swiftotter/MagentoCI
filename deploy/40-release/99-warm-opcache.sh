@@ -4,7 +4,6 @@
 
 logvalue "Curling the website to warm caches."
 
-if [[ ${HTTP_PATH} == "" ]] || [[ -z ${HTTP_PATH+x} ]]; then
-else
+if [ -n ${HTTP_PATH} == "" ]; then
     curl -I ${HTTP_PATH}
 fi
