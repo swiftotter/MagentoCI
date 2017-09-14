@@ -5,6 +5,6 @@
 logvalue "Curling the website to warm caches: ${HTTP_PATH}"
 
 if [ ${#HTTP_PATH} -ge 1 ]; then
-    logvalue "Executing cURL: ${HTTP_PATH}"
-    curl -I ${HTTP_PATH}
+#    logvalue "Executing cURL: ${HTTP_PATH}"
+#    curl -I ${HTTP_PATH}
 fi
