@@ -30,7 +30,11 @@ case $key in
     -m|--magentoVersion)
     MAGENTO_VERSION=$2
     shift
-    ;;    
+    ;;
+    -h|--httpPath)
+    HTTP_PATH=$2
+    shift
+    ;;
     -i|--buildID)
     BUILD_ID=$2
     shift
@@ -106,6 +110,7 @@ export USER=${USER}
 export GROUP=${GROUP}
 export DEPLOY_USER=${DEPLOY_USER}
 export MAGENTO_VERSION=${MAGENTO_VERSION}
+export HTTP_PATH=${HTTP_PATH}
 
 printf "Debug Mode: ${DEBUG}"
 
