@@ -10,10 +10,3 @@ if [ -z ${RELEASE_DIR+x} ] || [ -z ${OUTPUT_DIR+x} ]; then
 fi
 
 ln -snf ${RELEASE_DIR} ${OUTPUT_DIR}
-
-
-## Cleaning PHP7 opcaches
-if [[ -d "${RELEASE_DIR}/vendor/bin/cachetool" ]]; then
-    logvalue "Clearing caches..."
-    (cd ${RELEASE_DIR} && ${PHP} vendor/gordalina/cachetool/bin/cachetool opcache:reset)
-fi
