@@ -4,6 +4,6 @@
 
 logvalue "Curling the website to warm caches."
 
-if [ -n ${HTTP_PATH} ]; then
+if [ ${#HTTP_PATH} -ge 1 ]; then
     curl -I ${HTTP_PATH}
 fi
