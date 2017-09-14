@@ -6,8 +6,6 @@ cd ${BUILD_DIR}
 
 touch "${BUILD_DIR}/pub/static/deployed_version.txt"
 
-logvalue "mysql -u root ${MYSQL_PASSWORD_PROMPT} ${DB_NAME}"
-
 mysql -u root ${MYSQL_PASSWORD_PROMPT} ${DB_NAME} <<-EOSQL
   INSERT INTO core_config_data (config_id, scope, scope_id, path, value) VALUES (null, 'default', 0, 'dev/css/minify_files', '1');
 EOSQL
