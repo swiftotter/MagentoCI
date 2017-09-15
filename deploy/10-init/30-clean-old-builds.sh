@@ -21,3 +21,4 @@ do
         rm -rf ${FILE}
     fi
 done
+shopt -u nullglob
