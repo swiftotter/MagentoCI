@@ -18,9 +18,12 @@ ln -sf ${LINK_DIR}/var ${RELEASE_DIR}/public
 [[ -d "${LINK_DIR}/blog" ]] && ln -sf ${LINK_DIR}/blog ${RELEASE_DIR}/public/blog
 [[ -d "${LINK_DIR}/sitemap" ]] && ln -sf ${LINK_DIR}/sitemap ${RELEASE_DIR}/public/sitemap
 [[ -d "${LINK_DIR}/menu" ]] && ln -sf ${LINK_DIR}/menu ${RELEASE_DIR}/public/menu
+
+shopt -s dotglob
 if [ -d "${LINK_DIR}/config.d" ]; then
     ln -s ${LINK_DIR}/config.d/* ${RELEASE_DIR}/config.d/
 fi
+shopt -u dotglob
 
 ## LINK ALL ROBOTS.TXT FILES:
 for file in `find ${LINK_DIR} -maxdepth 1 -type f -name "robots*" | xargs -I {} basename {}`
