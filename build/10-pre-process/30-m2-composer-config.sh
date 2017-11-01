@@ -10,6 +10,10 @@ if [[ ! -d "${BUILD_DIR}/lib" ]] && [[ -d "${BUILD_DIR}/vendor/magento/magento2-
     cp -r ${BUILD_DIR}/vendor/magento/magento2-base/* ${BUILD_DIR}
 fi
 
+if [[ ! -d "${BUILD_DIR}/app/etc/enterprise/di.xml" ]] && [[ -d "${BUILD_DIR}/vendor/magento/magento2-ee-base" ]]; then
+    cp -r ${BUILD_DIR}/vendor/magento/magento2-ee-base/* ${BUILD_DIR}
+fi
+
 if [[ ! -f "${BUILD_DIR}/app/etc/vendor_path.php" ]]; then
     echo "<?php return './vendor';" > ${BUILD_DIR}/app/etc/vendor_path.php
 fi
