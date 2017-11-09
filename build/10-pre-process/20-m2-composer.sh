@@ -21,3 +21,5 @@ if [ -f "${BUILD_DIR}/composer.json" ]; then
     
     (cd ${BUILD_DIR} && composer install $ADDITIONS --ignore-platform-reqs --no-interaction --no-plugins --no-progress --no-suggest --prefer-dist --optimize-autoloader)
 fi
+
+chmod -R 777 ${BUILD_DIR}
