@@ -33,6 +33,6 @@ done
 if [ -d "${LINK_DIR}/home" ]; then
     for f in $(ls -d ${LINK_DIR}/home/*); 
     do 
-        ln -s $f ${LINK_DIR}/pub/;
+        ln -s $f ${RELEASE_DIR}/pub/;
     done
 fi
