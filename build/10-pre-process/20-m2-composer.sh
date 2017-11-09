@@ -12,6 +12,8 @@ if [ -f "${CHECKOUT_DIR}/src/composer.json" ]; then
     cp ${CHECKOUT_DIR}/src/composer.* ${BUILD_DIR}
 fi
 
+ls -alh ${BUILD_DIR}
+
 if [ -f "${BUILD_DIR}/composer.json" ]; then
     logvalue "Executing composer install"
     ADDITIONS=""
@@ -22,4 +24,5 @@ if [ -f "${BUILD_DIR}/composer.json" ]; then
     (cd ${BUILD_DIR} && composer install $ADDITIONS --ignore-platform-reqs --no-interaction --no-plugins --no-progress --no-suggest --prefer-dist --optimize-autoloader)
 fi
 
+ls -alh ${BUILD_DIR}
 chmod -R 777 ${BASE}
