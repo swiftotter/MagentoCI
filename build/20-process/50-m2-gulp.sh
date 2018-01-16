@@ -12,3 +12,10 @@ if [ ! -z "$THEME" -a "$THEME" != " " ]; then
     )
 
 fi
+
+if [ -f "${CHECKOUT_DIR}/package.json" ]; then
+    (cd "${BUILD_DIR}/"  \
+        && npm install \
+        && npm run prod \
+    )
+fi
