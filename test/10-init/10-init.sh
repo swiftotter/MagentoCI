@@ -20,12 +20,6 @@ logvalue ${BASE}
 logvalue ${BUILD}
 ls -alh ${BUILD}
 
-if [[ ! -f ${BUILD}/phpunit.xml ]]; then
-    logvalue "No phpunit.xml found. Cancelling."
-    exit 125
-fi
-
-
 mkdir -p ${OUTPUT_DIR}
 
 if [ -z ${MYSQL_USER+x} ]; then
