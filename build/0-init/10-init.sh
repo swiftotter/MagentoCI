@@ -16,7 +16,7 @@ export SCRIPT_DEPLOY_DIR="${base}/scripts/deploy"
 export SCRIPT_BUILD_DIR="${base}/scripts/build"
 
 export MAGENTO_STAGING="${base}/magento"
-export CONFIG_DIR="${base}/config.d"
+export CONFIG_DIR="${base}/checkout/config.d"
 export BUILD_DIR="${base}/build"
 export BUILD_FILE="${base}/build.tar.gz"
 
