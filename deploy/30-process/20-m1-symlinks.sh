@@ -30,3 +30,11 @@ for file in `find ${LINK_DIR} -maxdepth 1 -type f -name "robots*" | xargs -I {} 
 do
     ln -s ${LINK_DIR}/$file ${RELEASE_DIR}/public/$file
 done
+
+## LINK ALL FILES IN link/home DIR:
+if [ -d "${LINK_DIR}/home" ]; then
+    for f in $(ls -d ${LINK_DIR}/home/*); 
+    do 
+        ln -s $f ${RELEASE_DIR}/public/;
+    done
+fi
