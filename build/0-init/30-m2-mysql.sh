@@ -8,7 +8,7 @@ if (( $(ps -ef | grep ${service} | wc -l) == 0 )); then
    echo "MySQL is not running, or can't be logged into, using \"root\" and no password."
    exit 125
 else
-    mysql -u ${MYSQL_USER} ${MYSQL_PASSWORD_PROMPT} <<-EOSQL
+    mysql -u ${MYSQL_USER} ${MYSQL_PASSWORD_PROMPT} --connect-expired-password <<-EOSQL
         DROP DATABASE IF EXISTS ${DB_NAME};
         CREATE DATABASE ${DB_NAME};
 EOSQL
