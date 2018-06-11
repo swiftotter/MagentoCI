@@ -20,8 +20,8 @@ export CONFIG_DIR="${base}/checkout/config.d"
 export BUILD_DIR="${base}/build"
 export BUILD_FILE="${base}/build.tar.gz"
 
-export COMPOSER_CMD="composer"
-export PHP_CMD="php -dmemory_limit=1500M"
+export COMPOSER_CMD="$PHP /usr/local/bin/composer"
+export PHP_CMD="$PHP -dmemory_limit=1500M"
 
 
 mkdir -p "${BUILD_DIR}"
