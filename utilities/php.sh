@@ -11,3 +11,5 @@ else
 fi
 
 echo $PHP
+
+export PHP=$PHP
