@@ -7,7 +7,7 @@ logvalue "Magento version: ${MAGENTO_VERSION}"
 
 if [[ $MAGENTO_VERSION == "2."* ]]; then
     ## Composer vendor directory
-    export MAGENTO_CMD="php -dmemory_limit=1500M bin/magento"
+    export MAGENTO_CMD="$PHP -dmemory_limit=1500M bin/magento"
 
     export MODULE_INSTALLER="${base}/scripts/build/module-installer"
 
