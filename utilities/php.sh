@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-PHP="php71"
-php71 -i >/dev/null 2>&1 || { PHP="php70"; }
-php70 -i >/dev/null 2>&1 || { PHP="php"; }
+if [ -x "$(command -v php72)" ]; then
+  PHP="php72"
+elif [ -x "$(command -v php71)" ]; then
+  PHP = "php71";
+elif [ -x "$(command -v php70)" ]; then
+  PHP = "php70";
+else
+  PHP = "php";
+fi
 
 export PHP=$PHP
