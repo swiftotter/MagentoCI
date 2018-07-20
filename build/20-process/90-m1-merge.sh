@@ -82,3 +82,6 @@ if [[ -d "${CHECKOUT_DIR}/customizations/vendor/" ]]; then
     echo "${rsync_cmd} --exclude='*modman*' ${CHECKOUT_DIR}/customizations/vendor/. ${BUILD_DIR}/vendor/\n"
     ${rsync_cmd} --exclude='*modman*' ${CHECKOUT_DIR}/customizations/vendor/. ${BUILD_DIR}/vendor/
 fi
+
+rm -rf ${BUILD_DIR}/public/.gitignore
+rm -rf ${BUILD_DIR}/public/.git
