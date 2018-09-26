@@ -14,16 +14,26 @@ fi
 
 NUM=0
 PREVIOUS_BUILDS=2
-for FILE in `ls -d -- ${RELEASE_PARENT_DIR}/*-* | sort -t- -k2 -r`
+shopt -s nullglob
+for FILE in ${RELEASE_PARENT_DIR}/*-*
 do
+    if [[ ! -d ${FILE} ]]; then
+        continue
+    fi
     if [[ ${FILE} != *"-${BUILD}"* ]]; then
         let "NUM=NUM+1"
+        IFS='-' read -ra BUILD_ARR <<< "$FILE"
+        BUILD_NUM=${BUILD_ARR[@]:(-1)}
+        re='^[0-9]+$'
+        if ! [[ $BUILD_NUM =~ $re ]] ; then
+            printf "${BUILD_NUM} is not numeric\n"
+            #continue
+        fi
         if [[ $NUM > $PREVIOUS_BUILDS ]]; then
             printf "DELETING ${FILE}\n"
-            rm -rf ${FILE}
+            #rm -rf ${FILE}
         else
-            IFS='-' read -ra BUILD_ARR <<< "$FILE"
-            printf "Keeping recent build ${BUILD_ARR[1]}\n"
+            printf "Keeping recent build ${BUILD_NUM}\n"
         fi
     else
         printf "Keeping current build ${BUILD}\n"
