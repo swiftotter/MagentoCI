@@ -15,23 +15,29 @@ fi
 NUM=0
 PREVIOUS_BUILDS=2
 shopt -s nullglob
-for FILE in ${RELEASE_PARENT_DIR}/*-*
+for FILE in `ls -d -- ${RELEASE_PARENT_DIR}/*-* | sort -t- -k2 -r`
 do
     if [[ ! -d ${FILE} ]]; then
         continue
     fi
     if [[ ${FILE} != *"-${BUILD}"* ]]; then
-        let "NUM=NUM+1"
-        IFS='-' read -ra BUILD_ARR <<< "$FILE"
-        BUILD_NUM=${BUILD_ARR[@]:(-1)}
+        FILE_BASE=`basename ${FILE}`
+        IFS='-' read -ra BUILD_ARR <<< "$FILE_BASE"
+        BUILD_LABEL=${BUILD_ARR[0]}
+        BUILD_NUM=${BUILD_ARR[1]}
         re='^[0-9]+$'
-        if ! [[ $BUILD_NUM =~ $re ]] ; then
-            printf "${BUILD_NUM} is not numeric\n"
-            #continue
+        if ! [[ $BUILD_NUM =~ $re ]]; then
+            printf "${FILE_BASE} is not a build directory\n"
+            continue
         fi
+        if ! [[ "$BUILD_LABEL" = "build" ]]; then
+            printf "${FILE_BASE} is not a build directory\n"
+            continue
+        fi
+        let "NUM=NUM+1"
         if [[ $NUM > $PREVIOUS_BUILDS ]]; then
             printf "DELETING ${FILE}\n"
-            #rm -rf ${FILE}
+            rm -rf ${FILE}
         else
             printf "Keeping recent build ${BUILD_NUM}\n"
         fi
