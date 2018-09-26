@@ -13,7 +13,7 @@ if [ -f "${BUILD_ID}.tar.gz" ]; then
 fi
 
 NUM=0
-PREVIOUS_BUILDS=2
+PREVIOUS_BUILDS=1
 shopt -s nullglob
 for FILE in `ls -d -- ${RELEASE_PARENT_DIR}/*-* | sort -t- -k2 -r`
 do
