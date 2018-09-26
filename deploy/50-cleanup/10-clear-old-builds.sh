@@ -45,3 +45,5 @@ do
         printf "Keeping current build ${BUILD}\n"
     fi
 done
+
+rm -rf ${RELEASE_PARENT_DIR}/*.gz
