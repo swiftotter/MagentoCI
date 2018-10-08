@@ -4,6 +4,6 @@
 
 logvalue "Cleaning up MySQL."
 
-mysql -u root ${MYSQL_PASSWORD_PROMPT} <<-EOSQL
-    DROP DATABASE IF EXISTS ${DB_NAME};
-EOSQL
+# mysql -u root ${MYSQL_PASSWORD_PROMPT} <<-EOSQL
+#    DROP DATABASE IF EXISTS ${DB_NAME};
+# EOSQL
