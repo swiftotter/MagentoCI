@@ -37,3 +37,7 @@ if [ -d "${LINK_DIR}/home" ]; then
         ln -s $f ${RELEASE_DIR}/pub/;
     done
 fi
+
+if [ -f "${LINK_DIR}/home/.htaccess ]; then
+    ln -s "${LINK_DIR}/home/.htaccess" ${RELEASE_DIR}/pub/
+fi
