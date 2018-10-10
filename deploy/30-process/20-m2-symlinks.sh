@@ -23,6 +23,7 @@ ln -sf ${LINK_DIR}/media ${RELEASE_DIR}/pub
 [[ -f "${LINK_DIR}/var/default.vcl" ]] && ln -sf ${LINK_DIR}/var/default.vcl ${RELEASE_DIR}/var
 [[ -f "${LINK_DIR}/driver-connections.yaml" ]] && mkdir -p ${RELEASE_DIR}/config.d && ln -sf "${LINK_DIR}/driver-connections.yaml" ${RELEASE_DIR}/config.d/connections.yaml
 [[ -d "${LINK_DIR}/blog" ]] && ln -sf ${LINK_DIR}/blog ${RELEASE_DIR}/pub/blog
+[[ -f "${LINK_DIR}/home/.htaccess" ]] && ln -sf ${LINK_DIR}/home/.htaccess ${RELEASE_DIR}/pub/.htaccess
 
 ## LINK ALL ROBOTS.TXT FILES:
 for file in `find ${LINK_DIR} -maxdepth 1 -type f -name "robots*" | xargs -I {} basename {}`
@@ -36,8 +37,4 @@ if [ -d "${LINK_DIR}/home" ]; then
     do 
         ln -s $f ${RELEASE_DIR}/pub/;
     done
-fi
-
-if [ -f "${LINK_DIR}/home/.htaccess" ]; then
-    ln -s "${LINK_DIR}/home/.htaccess" ${RELEASE_DIR}/pub/
 fi
