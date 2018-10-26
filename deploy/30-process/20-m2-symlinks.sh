@@ -12,6 +12,7 @@ fi
 ## REQUIRED:
 mkdir -p ${RELEASE_DIR}/app/etc/
 ln -sf ${LINK_DIR}/env.php ${RELEASE_DIR}/app/etc/env.php
+rm -rf ${RELEASE_DIR}/pub/media
 ln -sf ${LINK_DIR}/media ${RELEASE_DIR}/pub
 
 ## OPTIONAL:
