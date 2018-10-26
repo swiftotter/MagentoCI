@@ -10,6 +10,7 @@ if [ -z ${LINK_DIR+x} ] || [ -z ${RELEASE_DIR+x} ]; then
 fi
 
 ## REQUIRED:
+mkdir -p ${RELEASE_DIR}/app/etc/
 ln -sf ${LINK_DIR}/env.php ${RELEASE_DIR}/app/etc/env.php
 ln -sf ${LINK_DIR}/media ${RELEASE_DIR}/pub
 
