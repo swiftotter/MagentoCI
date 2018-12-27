@@ -6,9 +6,11 @@ cd ${BUILD_DIR}
 
 touch "${BUILD_DIR}/pub/static/deployed_version.txt"
 
-mysql -u root ${MYSQL_PASSWORD_PROMPT} ${DB_NAME} <<-EOSQL
-  INSERT INTO core_config_data (config_id, scope, scope_id, path, value) VALUES (null, 'default', 0, 'dev/css/minify_files', '1');
-EOSQL
+$MAGENTO_CMD config:set dev/css/minify_files 1
+$MAGENTO_CMD config:set dev/css/merge_css_files 1
+$MAGENTO_CMD config:set dev/js/minify_files 1
+$MAGENTO_CMD config:set dev/js/enable_js_bundling 0
+$MAGENTO_CMD config:set dev/js/merge_files 0
 
 $MAGENTO_CMD deploy:mode:set production --skip-compilation
 $MAGENTO_CMD setup:upgrade
