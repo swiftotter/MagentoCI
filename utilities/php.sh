@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-if [ -x "$(command -v php72)" ]; then
+if [ -x "$(command -v php73)" ]; then
+  PHP="php73"
+elif [ -x "$(command -v php72)" ]; then
   PHP="php72"
 elif [ -x "$(command -v php71)" ]; then
   PHP="php71";
