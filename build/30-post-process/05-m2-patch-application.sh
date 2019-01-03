@@ -17,7 +17,7 @@ if [[ -d "${CHECKOUT_DIR}/patch" ]]; then
         processed=1
         target_file="${BUILD_DIR}/${file}"
 
-        cp "${CHECKOUT_DIR}/$file" ${target_file}
+        cp "${CHECKOUT_DIR}/patch/$file" ${target_file}
         chmod 777 ${target_file}
         printf "\nApplying: ${file}\n"
 
