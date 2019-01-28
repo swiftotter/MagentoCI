@@ -8,10 +8,10 @@ if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
             cd ${CHECKOUT_DIR} &&
         
             printf "Installing NPM modules" &&
-            npm install &&
+            yarn install &&
 
             printf "Gulping the files" &&
-            npm run gulp prod
+            yarn run prod
         )
     fi
 fi
