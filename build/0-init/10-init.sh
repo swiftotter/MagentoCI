@@ -22,6 +22,7 @@ export BUILD_FILE="${base}/build.tar.gz"
 
 export COMPOSER_CMD="$PHP /usr/local/bin/composer"
 export PHP_CMD="$PHP -dmemory_limit=1500M"
+export MYSQL="mysql -h$MYSQL_HOST"
 
 
 mkdir -p "${BUILD_DIR}"
