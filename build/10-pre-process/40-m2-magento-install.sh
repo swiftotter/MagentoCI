@@ -10,7 +10,6 @@ cd ${BUILD_DIR}
 chmod 777 .
 mkdir -p ${BUILD_DIR}/pub/media
 chmod -R 777 ${BUILD_DIR}/pub/media
-rm ${BUILD_DIR}/app/etc/env.php
 chmod +x bin/magento
 ${MAGENTO_CMD} setup:install \
     --admin-firstname="Magento" \
