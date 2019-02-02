@@ -4,6 +4,10 @@
 
 logvalue "Initializing variables"
 
+logvalue "Magento version: ${MAGENTO_VERSION}"
+logvalue "Build ID: ${BUILD_ID}"
+logvalue "Theme: ${THEME}"
+
 base=$(pwd)
 base=${base%/}
 export BASE=$base
