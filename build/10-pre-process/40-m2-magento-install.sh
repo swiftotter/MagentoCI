@@ -7,13 +7,11 @@ logvalue "Installing Magento"
 
 cd ${BUILD_DIR}
 
-
-
-sudo chmod 777 .
-sudo mkdir -p ${BUILD_DIR}/pub/media
-sudo chmod -R 777 ${BUILD_DIR}/pub/media
-sudo rm ${BUILD_DIR}/app/etc/env.php
-sudo chmod +x bin/magento
+chmod 777 .
+mkdir -p ${BUILD_DIR}/pub/media
+chmod -R 777 ${BUILD_DIR}/pub/media
+rm ${BUILD_DIR}/app/etc/env.php
+chmod +x bin/magento
 ${MAGENTO_CMD} setup:install \
     --admin-firstname="Magento" \
     --admin-lastname="Builder" \
