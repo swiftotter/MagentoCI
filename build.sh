@@ -35,6 +35,10 @@ case $key in
     MAGENTO_VERSION="$2"
     shift
     ;;
+    --mysqlHost)
+    MYSQL_HOST="$2"
+    shift
+    ;;
     -t|--theme)
     THEME="$2"
     shift
@@ -48,6 +52,10 @@ case $key in
 esac
 shift
 done
+
+if [ -z ${MYSQL_HOST+x} ]; then
+    MYSQL_HOST="127.0.0.1"
+fi
 
 if [ -z ${MAGENTO_VERSION+x} ]; then
     MAGENTO_VERSION="2.2"
@@ -63,6 +71,7 @@ fi
 
 export DEBUG=${DEBUG}
 export THEME=${THEME}
+export MYSQL_HOST=${MYSQL_HOST}
 export MAGENTO_VERSION=${MAGENTO_VERSION}
 export BUILD_ID=${BUILD_ID}
 
