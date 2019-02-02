@@ -20,7 +20,7 @@ if [ -f "${BUILD_DIR}/composer.json" ]; then
     if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
         ADDITIONS="--no-dev"
     fi
-    
+    printenv
     COMPOSER_PATH="$(which composer)"
     (cd ${BUILD_DIR} && $PHP $COMPOSER_PATH install $ADDITIONS --ignore-platform-reqs --no-interaction --no-plugins --no-progress --no-suggest --prefer-dist --optimize-autoloader)
 fi
