@@ -4,6 +4,6 @@
 
 service="mysql"
 
- ${MYSQL} -u ${MYSQL_USER} ${MYSQL_PASSWORD_PROMPT} --connect-expired-password <<-EOSQL
-     DROP DATABASE IF EXISTS ${DB_NAME};
-     CREATE DATABASE ${DB_NAME};
+# ${MYSQL} -u ${MYSQL_USER} ${MYSQL_PASSWORD_PROMPT} --connect-expired-password <<-EOSQL
+#     DROP DATABASE IF EXISTS ${DB_NAME};
+#     CREATE DATABASE ${DB_NAME};
