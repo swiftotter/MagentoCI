@@ -4,13 +4,11 @@
 ls -alh "${BUILD_DIR}/"
 if [ -f "${BUILD_DIR}/package.json" ]; then
     (cd "${BUILD_DIR}/" \
-        && ls -alh \
         && yarn install \
         && yarn run prod \
     )
 elif [ -f "${CHECKOUT_DIR}/package.json" ]; then
     (cd "${CHECKOUT_DIR}/" \
-        && ls -alh \
         && yarn install \
         && yarn run prod \
     )
