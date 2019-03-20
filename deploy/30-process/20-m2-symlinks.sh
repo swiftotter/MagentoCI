@@ -19,6 +19,7 @@ ln -sf ${LINK_DIR}/media ${RELEASE_DIR}/pub
 [[ -d "${LINK_DIR}/sitemap" ]] && ln -sf ${LINK_DIR}/sitemap ${RELEASE_DIR}/pub
 [[ -d "${LINK_DIR}/var/cache" ]] && ln -sf ${LINK_DIR}/var/cache ${RELEASE_DIR}/var
 [[ -d "${LINK_DIR}/var/log" ]] && ln -sf ${LINK_DIR}/var/log ${RELEASE_DIR}/var
+[[ -d "${LINK_DIR}/var/restricted" ]] && ln -sf ${LINK_DIR}/var/restricted ${RELEASE_DIR}/var
 [[ -d "${LINK_DIR}/var/import" ]] && ln -sf ${LINK_DIR}/var/import ${RELEASE_DIR}/var
 [[ -d "${LINK_DIR}/var/import_history" ]] && ln -sf ${LINK_DIR}/var/import_history ${RELEASE_DIR}/var
 [[ -d "${LINK_DIR}/var/report" ]] && ln -sf ${LINK_DIR}/var/report ${RELEASE_DIR}/var
