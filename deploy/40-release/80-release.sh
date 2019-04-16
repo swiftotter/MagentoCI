@@ -9,4 +9,9 @@ if [ -z ${RELEASE_DIR+x} ] || [ -z ${OUTPUT_DIR+x} ]; then
     exit
 fi
 
+if [[ ! -L "${OUTPUT_DIR}" && -d "${OUTPUT_DIR}" ]]; then
+    TIME=$(date +%s)
+    mv ${OUTPUT_DIR} ${OUTPUT_DIR}-${TIME}
+fi
+
 ln -snf ${RELEASE_DIR} ${OUTPUT_DIR}
