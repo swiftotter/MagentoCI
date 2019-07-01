@@ -16,4 +16,4 @@ $MAGENTO_CMD deploy:mode:set production --skip-compilation
 $MAGENTO_CMD setup:upgrade
 $MAGENTO_CMD setup:di:compile
 HTTPS="on"
-$MAGENTO_CMD setup:static-content:deploy --content-version=${BUILD_ID} --jobs=2
+$MAGENTO_CMD setup:static-content:deploy --content-version=${BUILD_ID} --jobs=1
