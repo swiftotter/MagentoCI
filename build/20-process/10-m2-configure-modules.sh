@@ -4,4 +4,11 @@
 
 logvalue "Executing module installers"
 
-fileiterator "${SCRIPT_BUILD_DIR}/module-installer" ${BUILD_DIR}
+if [ -f "${CHECKOUT_DIR}/app/etc/config.php" ]; then
+    mkdir -p ${BUILD_DIR}/app/etc
+    cp ${CHECKOUT_DIR}/app/etc/config.php ${BUILD_DIR}/app/etc/config.php
+    $MAGENTO_CMD app:config:import --no-interaction
+else
+    fileiterator "${SCRIPT_BUILD_DIR}/module-installer" ${BUILD_DIR}
+fi
+
