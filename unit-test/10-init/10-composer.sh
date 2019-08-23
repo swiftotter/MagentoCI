@@ -27,5 +27,17 @@ if [ -f "${CHECKOUT_DIR}/composer.json" ]; then
     (cd ${CHECKOUT_DIR} && $PHP $COMPOSER_PATH install $ADDITIONS --ignore-platform-reqs --no-interaction --no-plugins --no-progress --no-suggest --prefer-dist --optimize-autoloader)
 fi
 
+if [[ ! -d "${CHECKOUT_DIR}/lib" ]] && [[ -d "${CHECKOUT_DIR}/vendor/magento/magento2-base" ]]; then
+    cp -r ${CHECKOUT_DIR}/vendor/magento/magento2-base/* ${CHECKOUT_DIR}
+fi
+
+if [[ ! -d "${CHECKOUT_DIR}/app/etc/enterprise/di.xml" ]] && [[ -d "${CHECKOUT_DIR}/vendor/magento/magento2-ee-base" ]]; then
+    cp -r ${CHECKOUT_DIR}/vendor/magento/magento2-ee-base/* ${CHECKOUT_DIR}
+fi
+
+if [[ ! -f "${CHECKOUT_DIR}/app/etc/vendor_path.php" ]]; then
+    echo "<?php return './vendor';" > ${CHECKOUT_DIR}/app/etc/vendor_path.php
+fi
+
 ls -alh ${CHECKOUT_DIR}
 chmod -R 777 ${BASE}
