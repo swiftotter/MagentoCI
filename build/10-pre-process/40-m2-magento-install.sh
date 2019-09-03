@@ -14,7 +14,7 @@ chmod +x bin/magento
 
 rsync_cmd="rsync --recursive --copy-links --specials --exclude='.git/' --exclude='.gitignore' --exclude='*README*'"
 if [[ -d "${CHECKOUT_DIR}/home/override" ]]; then
-  ${rsync_cmd} ${CHECKOUT_DIR}/home/override/* ${BUILD_DIR}
+  ${rsync_cmd} ${CHECKOUT_DIR}/home/override/* ${BUILD_DIR} -v --stats --progress
   rm -rf ${BUILD_DIR}/pub/override
 fi
 
