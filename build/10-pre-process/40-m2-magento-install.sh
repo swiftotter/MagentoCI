@@ -12,6 +12,7 @@ mkdir -p ${BUILD_DIR}/pub/media
 chmod -R 777 ${BUILD_DIR}/pub/media
 chmod +x bin/magento
 
+rsync_cmd="rsync --recursive --copy-links --specials --exclude='.git/' --exclude='.gitignore' --exclude='*README*'"
 if [[ -d "${CHECKOUT_DIR}/home/override" ]]; then
   ${rsync_cmd} ${CHECKOUT_DIR}/home/override/* ${BUILD_DIR}
   rm -rf ${BUILD_DIR}/pub/override
