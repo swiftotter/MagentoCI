@@ -12,8 +12,10 @@ mkdir -p ${BUILD_DIR}/pub/media
 chmod -R 777 ${BUILD_DIR}/pub/media
 chmod +x bin/magento
 
-ls -alh app/etc
-cat app/etc/config.php
+if [[ -d "${CHECKOUT_DIR}/home/override" ]]; then
+  ${rsync_cmd} ${CHECKOUT_DIR}/home/override/* ${BUILD_DIR}
+  rm -rf ${BUILD_DIR}/pub/override
+fi
 
 ${MAGENTO_CMD} setup:install \
     --admin-firstname="Magento" \
