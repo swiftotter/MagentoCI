@@ -59,6 +59,14 @@ case $key in
     DEBUG=$2
     shift
     ;;
+    -r|--rollbar)
+    ROLLBAR=$2
+    shift
+    ;;
+    -c|--commit)
+    COMMIT=$2
+    shift
+    ;;
     -h|--help)
     echo "$usage"
     exit
@@ -117,4 +125,18 @@ printf "Debug Mode: ${DEBUG}"
 source "releases/${BUILD_ID}/scripts/utilities/include.sh"
 source "releases/${BUILD_ID}/scripts/utilities/php.sh"
 
+if [ -n "$1" ]; then
+    curl --request POST \
+        --url https://api.rollbar.com/api/1/deploy/ \
+        --header 'content-type: application/json' \
+        --data "{\"access_token\":\"${ROLLBAR}\",\"environment\":\"${ENVIRONMENT}\",\"revision\":\"${COMMIT}\",\"status":\"started\"}"
+fi
+
 directoryiterator "releases/${BUILD_ID}/scripts/deploy"
+
+if [ -n "$1" ]; then
+    curl --request POST \
+        --url https://api.rollbar.com/api/1/deploy/ \
+        --header 'content-type: application/json' \
+        --data "{\"access_token\":\"${ROLLBAR}\",\"environment\":\"${ENVIRONMENT}\",\"revision\":\"${COMMIT}\",\"status":\"succeeded\"}"
+fi
