@@ -98,7 +98,7 @@ source scripts/utilities/php.sh
 if [ ! -z "$SENTRY_ORG" ]; then
 curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/ \
   -X POST \
-  -H 'Authorization: Bearer '${SENTRY_TOKEN}' \
+  -H 'Authorization: Bearer '${SENTRY_TOKEN} \
   -H 'Content-Type: application/json' \
   -d '{"version": "'${COMMIT}'","id": "'${COMMIT}'","projects":["'${SENTRY_PROJECT_SLUG}'"]}'
 fi
