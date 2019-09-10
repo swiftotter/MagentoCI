@@ -47,6 +47,22 @@ case $key in
     BUILD_ID="$2"
     shift
     ;;
+    --sentryOrg)
+    SENTRY_ORG="$2"
+    shift
+    ;;
+    --sentryProjectSlug)
+    SENTRY_PROJECT_SLUG="$2"
+    shift
+    ;;
+    --sentryToken)
+    SENTRY_TOKEN="$2"
+    shift
+    ;;
+    -c|--commit)
+    COMMIT=$2
+    shift
+    ;;
     *)
     ;;
 esac
@@ -78,5 +94,13 @@ export BUILD_ID=${BUILD_ID}
 # Include the directory iterator function
 source scripts/utilities/include.sh
 source scripts/utilities/php.sh
+
+if [ ! -z "$SENTRY_ORG" ]; then
+curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/ \
+  -X POST \
+  -H 'Authorization: Bearer '${SENTRY_TOKEN}' \
+  -H 'Content-Type: application/json' \
+  -d '{"version": "'${COMMIT}'","id": "'${COMMIT}'","projects":["'${SENTRY_PROJECT_SLUG}'"]}'
+fi
 
 directoryiterator "${BASE_PATH}/scripts/build"
