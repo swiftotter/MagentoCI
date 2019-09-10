@@ -4,6 +4,8 @@
 
 logvalue "Executing module installers"
 
+set -x
+
 if [ -f "${CHECKOUT_DIR}/app/etc/config.php" ]; then
     logvalue "config.php found, using that to configure installed modules."
     
@@ -11,6 +13,8 @@ if [ -f "${CHECKOUT_DIR}/app/etc/config.php" ]; then
     cp ${CHECKOUT_DIR}/app/etc/config.php ${BUILD_DIR}/app/etc/config.php
     $MAGENTO_CMD app:config:import --no-interaction
 else
+     logvalue "config.php not found"
     fileiterator "${SCRIPT_BUILD_DIR}/module-installer" ${BUILD_DIR}
 fi
 
+set +x
