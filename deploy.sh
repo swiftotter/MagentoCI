@@ -125,7 +125,7 @@ printf "Debug Mode: ${DEBUG}"
 source "releases/${BUILD_ID}/scripts/utilities/include.sh"
 source "releases/${BUILD_ID}/scripts/utilities/php.sh"
 
-if [ -n "$1" ]; then
+if [ -n "$ROLLBAR" ]; then
     curl --request POST \
         --url https://api.rollbar.com/api/1/deploy/ \
         --header 'content-type: application/json' \
@@ -134,7 +134,7 @@ fi
 
 directoryiterator "releases/${BUILD_ID}/scripts/deploy"
 
-if [ -n "$1" ]; then
+if [ -n "$ROLLBAR" ]; then
     curl --request POST \
         --url https://api.rollbar.com/api/1/deploy/ \
         --header 'content-type: application/json' \
