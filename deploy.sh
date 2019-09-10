@@ -156,7 +156,7 @@ fi
 if [ ! -z "$SENTRY_ORG" ]; then
     curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/${COMMIT}/deploys/ \
         -X POST \
-        -H 'Authorization: Bearer '${SENTRY_TOKEN}' \
+        -H 'Authorization: Bearer '${SENTRY_TOKEN} \
         -H 'Content-Type: application/json' \
         -d '{"environment":"'${ENVIRONMENT}'","name": '${CI_JOB_ID}'"}'
 fi
