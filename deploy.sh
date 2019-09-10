@@ -67,6 +67,18 @@ case $key in
     COMMIT=$2
     shift
     ;;
+    --sentryOrg)
+    SENTRY_ORG="$2"
+    shift
+    ;;
+    --sentryProjectSlug)
+    SENTRY_PROJECT_SLUG="$2"
+    shift
+    ;;
+    --sentryToken)
+    SENTRY_TOKEN="$2"
+    shift
+    ;;
     -h|--help)
     echo "$usage"
     exit
@@ -125,7 +137,7 @@ printf "Debug Mode: ${DEBUG}"
 source "releases/${BUILD_ID}/scripts/utilities/include.sh"
 source "releases/${BUILD_ID}/scripts/utilities/php.sh"
 
-if [ -n "$ROLLBAR" ]; then
+if [ ! -z "$ROLLBAR" ]; then
     curl --request POST \
         --url https://api.rollbar.com/api/1/deploy/ \
         --header 'content-type: application/json' \
@@ -134,9 +146,17 @@ fi
 
 directoryiterator "releases/${BUILD_ID}/scripts/deploy"
 
-if [ -n "$ROLLBAR" ]; then
+if [ ! -z "$ROLLBAR" ]; then
     curl --request POST \
         --url https://api.rollbar.com/api/1/deploy/ \
         --header 'content-type: application/json' \
         --data '{"access_token":"'${ROLLBAR}'","environment":"'${ENVIRONMENT}'","revision":"'${COMMIT}'","status":"succeeded"}'
+fi
+
+if [ ! -z "$SENTRY_ORG" ]; then
+    curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/${COMMIT}/deploys/ \
+        -X POST \
+        -H 'Authorization: Bearer '${SENTRY_TOKEN}' \
+        -H 'Content-Type: application/json' \
+        -d '{"environment":"'${ENVIRONMENT}'","name": '${CI_JOB_ID}'"}'
 fi
