@@ -129,7 +129,7 @@ if [ -n "$1" ]; then
     curl --request POST \
         --url https://api.rollbar.com/api/1/deploy/ \
         --header 'content-type: application/json' \
-        --data "{\"access_token\":\"${ROLLBAR}\",\"environment\":\"${ENVIRONMENT}\",\"revision\":\"${COMMIT}\",\"status":\"started\"}"
+        --data '{"access_token":"'${ROLLBAR}'","environment":"'${ENVIRONMENT}'","revision":"'${COMMIT}'","status":"started"}'
 fi
 
 directoryiterator "releases/${BUILD_ID}/scripts/deploy"
@@ -138,5 +138,5 @@ if [ -n "$1" ]; then
     curl --request POST \
         --url https://api.rollbar.com/api/1/deploy/ \
         --header 'content-type: application/json' \
-        --data "{\"access_token\":\"${ROLLBAR}\",\"environment\":\"${ENVIRONMENT}\",\"revision\":\"${COMMIT}\",\"status":\"succeeded\"}"
+        --data '{"access_token":"'${ROLLBAR}'","environment":"'${ENVIRONMENT}'","revision":"'${COMMIT}'","status":"succeeded"}'
 fi
