@@ -104,6 +104,7 @@ export PIPELINE_ID=${PIPELINE_ID}
 source scripts/utilities/include.sh
 source scripts/utilities/php.sh
 
+set -x
 if [ ! -z "$SENTRY_ORG" ]; then
 curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/ \
   -X POST \
@@ -111,5 +112,6 @@ curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/ \
   -H 'Content-Type: application/json' \
   -d '{"version": "'${PIPELINE_ID}'","id": "'${PIPELINE_ID}'","refs":[{"commit":"'${COMMIT}'","repository":"'${REPOSITORY}'"}],"projects":["'${SENTRY_PROJECT_SLUG}'"]}'
 fi
+set +x
 
 directoryiterator "${BASE_PATH}/scripts/build"
