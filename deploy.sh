@@ -79,6 +79,14 @@ case $key in
     SENTRY_TOKEN="$2"
     shift
     ;;
+    --repository)
+    REPOSITORY=$2
+    shift
+    ;;
+    --pipelineID)
+    PIPELINE_ID=$2
+    shift
+    ;;
     -h|--help)
     echo "$usage"
     exit
@@ -154,9 +162,9 @@ if [ ! -z "$ROLLBAR" ]; then
 fi
 
 if [ ! -z "$SENTRY_ORG" ]; then
-    curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/${COMMIT}/deploys/ \
+    curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/${PIPELINE_ID}/deploys/ \
         -X POST \
         -H 'Authorization: Bearer '${SENTRY_TOKEN} \
         -H 'Content-Type: application/json' \
-        -d '{"environment":"'${ENVIRONMENT}'","name": '${CI_JOB_ID}'"}'
+        -d '{"environment":"'${ENVIRONMENT}'","name": '${PIPELINE_ID}'"}'
 fi
