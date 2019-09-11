@@ -98,6 +98,7 @@ export THEME=${THEME}
 export MYSQL_HOST=${MYSQL_HOST}
 export MAGENTO_VERSION=${MAGENTO_VERSION}
 export BUILD_ID=${BUILD_ID}
+export PIPELINE_ID=${PIPELINE_ID}
 
 # Include the directory iterator function
 source scripts/utilities/include.sh
