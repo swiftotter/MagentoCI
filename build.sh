@@ -67,6 +67,10 @@ case $key in
     REPOSITORY=$2
     shift
     ;;
+    --pipelineID)
+    PIPELINE_ID=$2
+    shift
+    ;;
     *)
     ;;
 esac
@@ -104,7 +108,7 @@ curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/ \
   -X POST \
   -H 'Authorization: Bearer '${SENTRY_TOKEN} \
   -H 'Content-Type: application/json' \
-  -d '{"version": "'${BUILD_ID}'","id": "'${BUILD_ID}'","refs":[{"commit":"'${COMMIT}'","repository":"'${REPOSITORY}'"}],"projects":["'${SENTRY_PROJECT_SLUG}'"]}'
+  -d '{"version": "'${PIPELINE_ID}'","id": "'${PIPELINE_ID}'","refs":[{"commit":"'${COMMIT}'","repository":"'${REPOSITORY}'"}],"projects":["'${SENTRY_PROJECT_SLUG}'"]}'
 fi
 
 directoryiterator "${BASE_PATH}/scripts/build"
