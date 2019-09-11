@@ -162,9 +162,11 @@ if [ ! -z "$ROLLBAR" ]; then
 fi
 
 if [ ! -z "$SENTRY_ORG" ]; then
+    set -x
     curl https://sentry.io/api/0/organizations/${SENTRY_ORG}/releases/${PIPELINE_ID}/deploys/ \
         -X POST \
         -H 'Authorization: Bearer '${SENTRY_TOKEN} \
         -H 'Content-Type: application/json' \
-        -d '{"environment":"'${ENVIRONMENT}'","name": '${PIPELINE_ID}'"}'
+        -d '{"environment":"'${ENVIRONMENT}'","name":"'${PIPELINE_ID}'"}'
+    set +x
 fi
