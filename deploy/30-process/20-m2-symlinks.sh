@@ -17,7 +17,9 @@ ln -sf ${LINK_DIR}/media ${RELEASE_DIR}/pub
 
 ## OPTIONAL:
 [[ -d "${LINK_DIR}/sitemap" ]] && ln -sf ${LINK_DIR}/sitemap ${RELEASE_DIR}/pub
-[[ -d "${LINK_DIR}/var" ]] && ln -sf ${LINK_DIR}/var ${RELEASE_DIR}
+[[ -d "${LINK_DIR}/var/view_preprocessed" ]] && mv ${RELEASE_DIR}/var/view_preprocessed ${RELEASE_DIR}/view_preprocessed
+[[ -d "${LINK_DIR}/var" ]] && rm -rf ${RELEASE_DIR}/var && ln -sf ${LINK_DIR}/var ${RELEASE_DIR}
+[[ -d "${LINK_DIR}/view_preprocessed" ]] && ln -sf ${RELEASE_DIR}/view_preprocessed ${RELEASE_DIR}/var/
 [[ -f "${LINK_DIR}/driver-connections.yaml" ]] && mkdir -p ${RELEASE_DIR}/config.d && ln -sf "${LINK_DIR}/driver-connections.yaml" ${RELEASE_DIR}/config.d/connections.yaml
 [[ -d "${LINK_DIR}/blog" ]] && ln -sf ${LINK_DIR}/blog ${RELEASE_DIR}/pub/blog
 [[ -f "${LINK_DIR}/home/.htaccess" ]] && ln -sf ${LINK_DIR}/home/.htaccess ${RELEASE_DIR}/pub/.htaccess
