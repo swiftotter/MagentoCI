@@ -17,15 +17,7 @@ ln -sf ${LINK_DIR}/media ${RELEASE_DIR}/pub
 
 ## OPTIONAL:
 [[ -d "${LINK_DIR}/sitemap" ]] && ln -sf ${LINK_DIR}/sitemap ${RELEASE_DIR}/pub
-[[ -d "${LINK_DIR}/var/cache" ]] && ln -sf ${LINK_DIR}/var/cache ${RELEASE_DIR}/var
-[[ -d "${LINK_DIR}/var/log" ]] && ln -sf ${LINK_DIR}/var/log ${RELEASE_DIR}/var
-[[ -d "${LINK_DIR}/var/restricted" ]] && ln -sf ${LINK_DIR}/var/restricted ${RELEASE_DIR}/var
-[[ -d "${LINK_DIR}/var/import" ]] && ln -sf ${LINK_DIR}/var/import ${RELEASE_DIR}/var
-[[ -d "${LINK_DIR}/var/import_history" ]] && ln -sf ${LINK_DIR}/var/import_history ${RELEASE_DIR}/var
-[[ -d "${LINK_DIR}/var/report" ]] && ln -sf ${LINK_DIR}/var/report ${RELEASE_DIR}/var
-[[ -d "${LINK_DIR}/var/session" ]] && ln -sf ${LINK_DIR}/var/session ${RELEASE_DIR}/var
-[[ -f "${LINK_DIR}/var/default.vcl" ]] && ln -sf ${LINK_DIR}/var/default.vcl ${RELEASE_DIR}/var
-[[ -f "${LINK_DIR}/var/varnish.vcl" ]] && ln -sf ${LINK_DIR}/var/default.vcl ${RELEASE_DIR}/var
+[[ -d "${LINK_DIR}/var" ]] && ln -sf ${LINK_DIR}/var ${RELEASE_DIR}
 [[ -f "${LINK_DIR}/driver-connections.yaml" ]] && mkdir -p ${RELEASE_DIR}/config.d && ln -sf "${LINK_DIR}/driver-connections.yaml" ${RELEASE_DIR}/config.d/connections.yaml
 [[ -d "${LINK_DIR}/blog" ]] && ln -sf ${LINK_DIR}/blog ${RELEASE_DIR}/pub/blog
 [[ -f "${LINK_DIR}/home/.htaccess" ]] && ln -sf ${LINK_DIR}/home/.htaccess ${RELEASE_DIR}/pub/.htaccess
