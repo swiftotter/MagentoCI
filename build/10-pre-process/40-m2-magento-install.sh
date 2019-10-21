@@ -24,7 +24,7 @@ ${MAGENTO_CMD} setup:install \
     --admin-email="joseph@swiftotter.com" \
     --admin-user="${MAGE_ADMIN_USER}" \
     --admin-password="${MAGE_ADMIN_PASSWORD}" \
-    --db-name="mysql_database" \
+    --db-name="build_db" \
     --db-user="root" \
-    --db-password="mysql_strong_password" \
+    --db-password="my-secret-password" \
     --db-host="mysql"
