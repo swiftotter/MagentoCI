@@ -25,6 +25,6 @@ ${MAGENTO_CMD} setup:install \
     --admin-user="${MAGE_ADMIN_USER}" \
     --admin-password="${MAGE_ADMIN_PASSWORD}" \
     --db-name="build_db" \
-    --db-user="root" \
-    --db-password="my-secret-password" \
+    --db-user="login-user" \
+    --db-password="very-secret-password" \
     --db-host="mysql"
