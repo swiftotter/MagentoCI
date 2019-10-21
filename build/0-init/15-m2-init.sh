@@ -15,6 +15,7 @@ if [[ $MAGENTO_VERSION == "2."* ]]; then
     export MAGE_ADMIN_USER=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 10 ; echo '')
     export MAGE_ADMIN_PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 10 ; echo '')"123"
     
+    export MYSQL_HOST="mariadb"
     if [ -z "${MYSQL_USER+x}" ]; then
         export MYSQL_USER="root"
     fi
