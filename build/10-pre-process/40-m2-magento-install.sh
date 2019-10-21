@@ -27,4 +27,4 @@ ${MAGENTO_CMD} setup:install \
     --db-name="build_db" \
     --db-user="login-user" \
     --db-password="very-secret-password" \
-    --db-host="mysql"
+    --db-host="${MYSQL_HOST}"
