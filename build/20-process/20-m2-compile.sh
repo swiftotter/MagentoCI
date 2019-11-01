@@ -7,8 +7,9 @@ cd ${BUILD_DIR}
 touch "${BUILD_DIR}/pub/static/deployed_version.txt"
 
 CMD_OUTPUT=$($MAGENTO_CMD config:set dev/css/minify_files 1)
+echo $CMD_OUTPUT
 
-if [[ $CMD_OUTPUT = "*no commands*" ]]; then
+if [[ $CMD_OUTPUT == "*no commands*" ]]; then
     printf "Magento did not install correctly." 1>&2
     printf "BUILD ERROR" 1>&2
     exit 125
