@@ -85,7 +85,14 @@ runfile() {
     printf "\n\n${DESCRIPTOR_INDENT}Running ${file}\n"
     if [ -z "${scope}" ]; then
        source $file
+       
+       if [ $? -ne 0 ]; then
+         exit 1
+       fi
     else
         (cd ${scope} && source $file)
+        if [ $? -ne 0 ]; then # If: last exit code is non-zero
+          exit 1
+        fi
     fi
 }
