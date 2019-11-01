@@ -115,3 +115,6 @@ fi
 set +x
 
 directoryiterator "${BASE_PATH}/scripts/build"
+if [ $? -ne 0 ]; then # If: last exit code is non-zero
+    exit 1
+fi
