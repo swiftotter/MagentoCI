@@ -4,6 +4,13 @@
 
 logvalue "Checking if ${BUILD_DIR}/pub/static/frontend/*/${THEME}/*/css/*.css exists."
 
+if [[ ! -s "${BUILD_DIR}/pub/static/deployed_version.txt" ]]; then
+    printf "Nothing in deployed_version.txt." 1>&2
+    printf "BUILD ERROR" 1>&2
+    exit 125
+fi
+
+
 if [[ ${THEME} != "null" ]] \
     && [[ ! -z ${var+x} ]] \
     && [[ ! -f "${BUILD_DIR}/pub/static/frontend/*/${THEME}/*/css/*.css" ]]; then
