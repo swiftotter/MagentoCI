@@ -4,6 +4,10 @@
 
 logvalue "Installing composer dependencies"
 
+if [ -f "${CHECKOUT_DIR}/auth.json" ]; then
+    cp ${CHECKOUT_DIR}/auth.* ${BUILD_DIR}
+fi
+
 if [ -f "${CHECKOUT_DIR}/composer.json" ]; then
     cp ${CHECKOUT_DIR}/composer.* ${BUILD_DIR}
 fi
