@@ -20,3 +20,5 @@ if [ -d ${PHPUNIT_DIR} ] && [ -f ${CHECKOUT_DIR}/dev/tests/integration/phpunit.x
 
     ${PHP} -dmemory_limit=512m ${PHPUNIT_BIN} --stderr --log-junit ${CHECKOUT_DIR}/phpunit-integration.xml --configuration ${CHECKOUT_DIR}/dev/tests/integration/phpunit.xml
 fi
+
+touch ${CHECKOUT_DIR}/phpunit-integration.xml
