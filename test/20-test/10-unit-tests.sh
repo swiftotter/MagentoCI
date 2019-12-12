@@ -10,3 +10,5 @@ if [ -d ${PHPUNIT_DIR} ] && [ -f ${CHECKOUT_DIR}/dev/tests/unit/phpunit.xml ]; t
     ls -alh ${CHECKOUT_DIR}/dev/tests/unit/
     ${PHP} -dmemory_limit=512m ${PHPUNIT_BIN} --stderr --log-junit ${CHECKOUT_DIR}/phpunit-unit.xml --configuration ${CHECKOUT_DIR}/dev/tests/unit/phpunit.xml
 fi
+
+${CHECKOUT_DIR}/phpunit-unit.xml
