@@ -86,7 +86,8 @@ runfile() {
     if [ -z "${scope}" ]; then
        source $file
        
-       if [ $? -ne 0 ]; then
+       local RESULT=$?
+       if [ $RESULT -ne 0 ] && [ $RESULT -ne 255 ]; then
          exit 1
        fi
     else
