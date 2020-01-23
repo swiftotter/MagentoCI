@@ -25,7 +25,16 @@ if [ -f "${BUILD_DIR}/composer.json" ]; then
         ADDITIONS="--no-dev"
     fi
     COMPOSER_PATH="$(which composer)"
-    (cd ${BUILD_DIR} && $PHP $COMPOSER_PATH install $ADDITIONS --ignore-platform-reqs --no-interaction --no-plugins --no-progress --no-suggest --prefer-dist --no-dev --optimize-autoloader)
+    (
+     cd ${BUILD_DIR} && $PHP $COMPOSER_PATH install $ADDITIONS \
+        --ignore-platform-reqs \
+        --no-interaction \
+        --no-plugins \
+        --no-progress \
+        --no-suggest \
+        --prefer-dist \
+        --optimize-autoloader
+    )
 fi
 
 ls -alh ${BUILD_DIR}
