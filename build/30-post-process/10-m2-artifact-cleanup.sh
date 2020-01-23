@@ -4,6 +4,12 @@
 
 logvalue "Cleaning out unneeded M2 files"
 
+if [ -f "${BUILD_DIR}/composer.json" ]; then
+    logvalue "Updating autoloader"
+    COMPOSER_PATH="$(which composer)"
+    (cd ${BUILD_DIR} && $PHP $COMPOSER_PATH dump-autoload --optimize)
+fi
+
 rm -rf "${BUILD_DIR}/update"
 rm -rf "${BUILD_DIR}/phpserver"
 rm -rf "${BUILD_DIR}/index.php"
