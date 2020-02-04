@@ -16,6 +16,11 @@ if [ -f "${CHECKOUT_DIR}/src/composer.json" ]; then
     cp ${CHECKOUT_DIR}/src/composer.* ${BUILD_DIR}
 fi
 
+if [ -d "${CHECKOUT_DIR}/src/patches" ]; then
+    mkdir -p ${BUILD_DIR}/patches
+    cp -r ${CHECKOUT_DIR}/src/patches/* ${BUILD_DIR}/patches
+fi
+
 ls -alh ${BUILD_DIR}
 
 if [ -f "${BUILD_DIR}/composer.json" ]; then
