@@ -29,7 +29,6 @@ if [ -f "${BUILD_DIR}/composer.json" ]; then
      cd ${BUILD_DIR} && $PHP $COMPOSER_PATH install $ADDITIONS \
         --ignore-platform-reqs \
         --no-interaction \
-        --no-plugins \
         --no-progress \
         --no-suggest \
         --prefer-dist \
