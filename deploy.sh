@@ -51,6 +51,10 @@ case $key in
     GROUP=$2
     shift
     ;;
+    --group)
+    PHP_EXEC=$2
+    shift
+    ;;
     -d|--deployUser)
     DEPLOY_USER=$2
     shift
@@ -139,6 +143,7 @@ export GROUP=${GROUP}
 export DEPLOY_USER=${DEPLOY_USER}
 export MAGENTO_VERSION=${MAGENTO_VERSION}
 export HTTP_PATH=${HTTP_PATH}
+export PHP_EXEC=${PHP_EXEC}
 
 printf "Debug Mode: ${DEBUG}"
 
