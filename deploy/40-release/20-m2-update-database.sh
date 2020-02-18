@@ -20,6 +20,8 @@ else
     RUN_DB_UPGRADE=1
 fi
 
+set -x
+
 export RUN_DB_UPGRADE=$RUN_DB_UPGRADE
 
 if [[ $RUN_DB_UPGRADE = 1 ]]; then
