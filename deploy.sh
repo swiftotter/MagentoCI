@@ -51,7 +51,7 @@ case $key in
     GROUP=$2
     shift
     ;;
-    --group)
+    --php)
     PHP_EXEC=$2
     shift
     ;;
