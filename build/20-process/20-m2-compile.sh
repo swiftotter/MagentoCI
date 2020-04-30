@@ -19,6 +19,7 @@ $MAGENTO_CMD config:set dev/css/merge_css_files 1
 $MAGENTO_CMD config:set dev/js/minify_files 1
 $MAGENTO_CMD config:set dev/js/enable_js_bundling 0
 $MAGENTO_CMD config:set dev/js/merge_files 0
+$MAGENTO_CMD config:set dev/template/minify_html 0
 
 $MAGENTO_CMD deploy:mode:set production --skip-compilation
 $MAGENTO_CMD setup:upgrade
