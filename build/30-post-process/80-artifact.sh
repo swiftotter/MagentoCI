@@ -11,7 +11,13 @@
 logvalue "Running artifact builder."
 
 if [[ ${TESTMODE} == 0 ]] || [[ -z ${TESTMODE+x} ]]; then
-    (cd "${BUILD_DIR}" && tar --gzip --create --file "${BASE}/build.tar.gz" .)
+    rm -rf "${BUILD_DIR}/build/"
+    rm -rf "${BUILD_DIR}/pub/static/ub-tool/"
+
+    (
+        cd "${BUILD_DIR}"; \
+        tar --gzip --create --file "${BASE}/build.tar.gz" .
+    )
     
     if [[ -f "${BUILD_FILE}" ]]; then
         printf "BUILD SUCCESS"
